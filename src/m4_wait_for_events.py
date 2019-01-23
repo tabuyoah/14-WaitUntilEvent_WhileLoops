@@ -208,9 +208,10 @@ def next_prime(m):
     # IMPLEMENTATION REQUIREMENT:
     #    -- Use (call) the   is_prime   function above appropriately.
     # -------------------------------------------------------------------------
-    while is_prime(m) is False:
+    while True:
         m = m + 1
-    return m
+        while is_prime(m) is True:
+            return m
 
 def run_test_prime_gap():
     """ Tests the   prime_gap    function. """
@@ -341,7 +342,7 @@ def prime_gap(m):
       :type m: int
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -350,11 +351,9 @@ def prime_gap(m):
     # -------------------------------------------------------------------------
     num1 = 2
     num2 = 3
-    dif = num2 - num1
-    while dif < m:
+    while num2 - num1 < m:
         num1 = next_prime(num1)
         num2 = next_prime(num2)
-        dif = num2 - num1
     return num1
 
 
